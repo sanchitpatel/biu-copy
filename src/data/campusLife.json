@@ -1,0 +1,38 @@
+{
+  "badge": "Student Experience",
+  "title": "Vibrant Campus Life & Culture",
+  "subtitle": "At BIU, learning extends beyond lecture halls. Experience a thriving campus ecosystem with student clubs, sports leagues, technical hackathons, and cultural festivals.",
+  "offerings": [
+    {
+      "title": "Student Clubs & Societies",
+      "desc": "Robotics Club, Literary Society, Music & Fine Arts, Coding Guild, and Rotaract Youth wing."
+    },
+    {
+      "title": "Sports & Fitness Complex",
+      "desc": "Olympic-sized cricket and football grounds, tennis courts, basketball courts, and indoor gymnasium."
+    },
+    {
+      "title": "Annual Fests & Hackathons",
+      "desc": "'Spandan' Annual Cultural Fest, National Tech-Spardha, hackathons, and inter-collegiate sports meets."
+    },
+    {
+      "title": "Social Impact & NCC/NSS",
+      "desc": "Community health outreach, rural health camps, blood donation drives, and active NCC cadet training."
+    }
+  ],
+  "ctaLabel": "Explore Campus Life",
+  "images": [
+    {
+      "img": "/biu-campus1.webp",
+      "alt": "Bareilly International University Campus Infrastructure"
+    },
+    {
+      "img": "/biu-campus2.webp",
+      "alt": "BIU Modern Academic Blocks & Student Facilities"
+    },
+    {
+      "img": "/bui-campus3.webp",
+      "alt": "BIU Campus Grounds & Environment"
+    }
+  ]
+}

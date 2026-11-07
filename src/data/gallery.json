@@ -1,0 +1,77 @@
+{
+  "badge": "Campus Gallery",
+  "titlePrefix": "Life at",
+  "titleSuffix": "BIU Campus",
+  "subtitle": "Explore the vibrant academic ecosystem, high-tech research labs, teaching hospital, and campus events at BIU.",
+  "ctaLabel": "View Full Gallery",
+  "galleryPage": {
+    "badge": "Visual Archives",
+    "titlePrefix": "BIU Campus",
+    "titleHighlight": "Photo & Video Gallery",
+    "subtitle": "Explore the visual journey of Bareilly International University — featuring clinical simulation labs, super-specialty hospital suites, central library, sports grounds, and annual convocation ceremonies.",
+    "backButtonLabel": "Back to Home",
+    "emptyStateMessage": "No photos available in gallery."
+  },
+  "images": [
+    {
+      "name": "biu-campus11.webp",
+      "alt": "Bareilly International University Campus Infrastructure",
+      "caption": "BIU Main Academic Campus Infrastructure",
+      "seed": "biu-campus11"
+    },
+    {
+      "name": "biu-campus12.webp",
+      "alt": "Rohilkhand Medical College & Hospital",
+      "caption": "Rohilkhand Medical College Super-Specialty Hospital",
+      "seed": "biu-campus12"
+    },
+    {
+      "name": "biu-campus4.webp",
+      "alt": "BIU Academic Block",
+      "caption": "Faculty of Engineering & Technology",
+      "seed": "biu-campus4"
+    },
+    {
+      "name": "biu-campus5.webp",
+      "alt": "Institute of Dental Sciences",
+      "caption": "Institute of Dental Sciences & Clinics",
+      "seed": "biu-campus5"
+    },
+    {
+      "name": "biu-campus6.webp",
+      "alt": "Faculty of Pharmacy",
+      "caption": "Faculty of Pharmacy Analytical Research Lab",
+      "seed": "biu-campus6"
+    },
+    {
+      "name": "biu-campus7.webp",
+      "alt": "Central Digital Library",
+      "caption": "24/7 Digital E-Library & Reading Suite",
+      "seed": "biu-campus7"
+    },
+    {
+      "name": "biu-campus8.webp",
+      "alt": "Sports Complex Grounds",
+      "caption": "University Sports Complex & Stadium",
+      "seed": "biu-campus8"
+    },
+    {
+      "name": "biu-campus9.webp",
+      "alt": "Student Hostels & Residences",
+      "caption": "AC Student Residences & Amenities",
+      "seed": "biu-campus9"
+    },
+    {
+      "name": "biu-campus10.webp",
+      "alt": "Robotics & AI Innovation Lab",
+      "caption": "High-Tech Computer Science & AI Labs",
+      "seed": "biu-campus10"
+    },
+    {
+      "name": "biu-campus13.webp",
+      "alt": "BIU Green Campus Environment",
+      "caption": "Sprawling 100-Acre Green Campus Environment",
+      "seed": "biu-campus13"
+    }
+  ]
+}

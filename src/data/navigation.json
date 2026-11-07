@@ -1,0 +1,576 @@
+[
+  {
+    "id": "about",
+    "label": "About BIU",
+    "href": "https://biu.edu.in/about.php",
+    "sidebar": [
+      {
+        "title": "University",
+        "icon": "Buildings",
+        "href": "https://biu.edu.in/about.php",
+        "columns": [
+          {
+            "title": "Heritage & Vision",
+            "icon": "Buildings",
+            "items": [
+              { "title": "About BIU", "href": "https://biu.edu.in/about.php", "desc": "Premier university established under UP State Act" },
+              { "title": "History", "href": "/history", "desc": "Legacy of transformative academic & clinical excellence" },
+              { "title": "Vision & Mission", "href": "https://biu.edu.in/visionmission.php", "desc": "Global standards in education, healthcare & research" }
+            ]
+          },
+          {
+            "title": "Campus & Facilities",
+            "icon": "Compass",
+            "items": [
+              { "title": "Campus", "href": "https://biu.edu.in/campus.php", "desc": "100+ acre lush green ultra-modern university campus" },
+              { "title": "Infrastructure", "href": "https://biu.edu.in/infrastructure.php", "desc": "World-class lecture theatres, labs & auditioriums" },
+              { "title": "Facilities", "href": "https://page.biu.edu.in/campus-facilities/", "desc": "Sports complex, residential hostels & cafeteria" },
+              { "title": "Central Library", "href": "https://page.biu.edu.in/central-library/", "desc": "Digital repository, e-journals & study resources" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Leadership & Governance",
+        "icon": "UsersThree",
+        "href": "https://biu.edu.in/chancellor.php",
+        "columns": [
+          {
+            "title": "Executive Officers",
+            "icon": "UsersThree",
+            "items": [
+              { "title": "Chancellor", "href": "https://biu.edu.in/chancellor.php", "desc": "Message & visionary leadership of Chancellor" },
+              { "title": "Vice Chancellor", "href": "https://biu.edu.in/vicechancellor.php", "desc": "Academic leadership & executive administration" },
+              { "title": "Registrar", "href": "https://biu.edu.in/registrar.php", "desc": "University administrative & statutory registrar" }
+            ]
+          },
+          {
+            "title": "Governance & Dignitaries",
+            "icon": "ShieldCheck",
+            "items": [
+              {
+                "title": "Governance Officers",
+                "desc": "Key university academic leadership",
+                "sublinks": [
+                  { "title": "Pro Chancellor", "href": "https://biu.edu.in/prochancellor.php" },
+                  { "title": "Pro Vice Chancellor", "href": "https://biu.edu.in/provicechancellor.php" }
+                ]
+              },
+              { "title": "Committees", "href": "https://biu.edu.in/committees.php", "desc": "Academic Council, Board of Studies & Ethics" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Recognition & Statutory",
+        "icon": "ShieldCheck",
+        "href": "https://biu.edu.in/recognitions.php",
+        "columns": [
+          {
+            "title": "Recognitions & Accreditations",
+            "icon": "ShieldCheck",
+            "items": [
+              { "title": "Recognitions", "href": "https://biu.edu.in/recognitions.php", "desc": "UGC, NMC, DCI, INC, PCI, AYUSH approvals" },
+              { "title": "Policies", "href": "https://biu.edu.in/policies.php", "desc": "Institutional governance & quality guidelines" },
+              { "title": "Code of Conduct", "href": "https://biu.edu.in/codeofconduct.php", "desc": "Ethics & standards for students and faculty" }
+            ]
+          },
+          {
+            "title": "Acts & Legal Statutes",
+            "icon": "Scales",
+            "items": [
+              { "title": "University Act", "href": "https://biu.edu.in/biuact.php", "desc": "Legislative establishment act by UP State" },
+              { "title": "Statutes", "href": "https://biu.edu.in/biustatute.php", "desc": "Governing regulatory statutes & framework" },
+              { "title": "Ordinances", "href": "https://biu.edu.in/biuordinance.php", "desc": "Academic ordinances & administrative rules" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Institutions",
+        "icon": "Compass",
+        "href": "/faculties",
+        "columns": [
+          {
+            "title": "Constituent Institutions",
+            "icon": "Buildings",
+            "items": [
+              { "title": "Rohilkhand Medical College", "href": "https://rmcbareilly.com/", "desc": "Premier MBBS & clinical PG institution" },
+              { "title": "Institute of Dental Sciences", "href": "https://www.idsbareilly.in/", "desc": "DCI recognized BDS & MDS departments" },
+              {
+                "title": "Nursing, Pharmacy & Paramedical",
+                "desc": "Professional healthcare education",
+                "sublinks": [
+                  { "title": "Nursing", "href": "https://page.biu.edu.in/rohilkhand-college-of-nursing/" },
+                  { "title": "Pharmacy", "href": "https://page.biu.edu.in/biu-college-of-pharmacy/" },
+                  { "title": "Allied Health", "href": "https://page.biu.edu.in/faculty-of-allied-and-health-care-sciences" },
+                  { "title": "Forensic", "href": "https://page.biu.edu.in/faculty-forensic-sciences/" }
+                ]
+              },
+              {
+                "title": "Management, Arts & AYUSH",
+                "desc": "Humanities, management & Indian medicine",
+                "sublinks": [
+                  { "title": "Management", "href": "https://page.biu.edu.in/biu-college-of-management/" },
+                  { "title": "Fine Arts", "href": "https://ffa.biu.edu.in/" },
+                  { "title": "Journalism", "href": "https://page.biu.edu.in/biu-college-of-humanities-journalism/" },
+                  { "title": "Ayurveda", "href": "https://ramch.in/" }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Group Institutions & Hospitals",
+            "icon": "Compass",
+            "items": [
+              {
+                "title": "Group Institutions (VAU)",
+                "href": "https://vau.edu.in/",
+                "desc": "Varun Arjun sister university campus",
+                "sublinks": [
+                  { "title": "VAU Main", "href": "https://vau.edu.in/" },
+                  { "title": "VA Medical", "href": "https://www.varunarjunmedicalcollege.com/" },
+                  { "title": "VA Pharmacy", "href": "https://www.vau.edu.in/varun-arjun-college-of-pharmacy/" },
+                  { "title": "VA Nursing", "href": "https://www.vau.edu.in/varun-arjun-college-of-nursing/" }
+                ]
+              },
+              { "title": "Hospitals & Healthcare", "href": "https://rmcbareilly.com/", "desc": "750+ bed tertiary multi-specialty teaching hospital" }
+            ]
+          }
+        ]
+      }
+    ],
+    "featured": {
+      "tag": "Leadership",
+      "title": "Chancellor's Vision",
+      "desc": "Empowering students through world-class education, research, and healthcare excellence.",
+      "image": "/chancellor.webp",
+      "linkText": "Read Message",
+      "linkHref": "https://biu.edu.in/chancellor.php"
+    },
+    "bottomLink": {
+      "text": "Register for 2026–27 session admissions & counseling",
+      "href": "https://enquiry.biuerp.com/"
+    }
+  },
+  {
+    "id": "academics",
+    "label": "Academics",
+    "href": "/programmes",
+    "sidebar": [
+      {
+        "title": "Programmes",
+        "icon": "GraduationCap",
+        "href": "/programmes",
+        "columns": [
+          {
+            "title": "Degree Programmes",
+            "icon": "GraduationCap",
+            "items": [
+              {
+                "title": "Undergraduate Degrees",
+                "href": "/programmes",
+                "desc": "MBBS, BDS, BAMS, B.Sc Nursing, B.Pharm, BBA, BFA, BMLT",
+                "sublinks": [
+                  { "title": "Medical (MBBS)", "href": "/programmes?course=mbbs" },
+                  { "title": "Dental (BDS)", "href": "/programmes?course=bds" },
+                  { "title": "Nursing (B.Sc)", "href": "/programmes?course=bsc-nursing" },
+                  { "title": "Pharmacy (B.Pharm)", "href": "/programmes?course=b-pharm" }
+                ]
+              },
+              {
+                "title": "Postgraduate Degrees",
+                "href": "/programmes",
+                "desc": "MD, MS, MDS, M.Sc Nursing, M.Pharm, MBA, MFA",
+                "sublinks": [
+                  { "title": "Medical MD/MS", "href": "/programmes?course=md" },
+                  { "title": "Dental MDS", "href": "/programmes?course=mds" },
+                  { "title": "MBA", "href": "/programmes?course=mba-healthcare" }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Diplomas & Doctoral",
+            "icon": "BookOpen",
+            "items": [
+              {
+                "title": "Diploma Courses",
+                "desc": "GNM, D.Pharm & specialized clinical paramedical diplomas",
+                "sublinks": [
+                  { "title": "GNM Nursing", "href": "https://biu.edu.in/nursing.php" },
+                  { "title": "D.Pharm", "href": "https://biu.edu.in/pharmacy.php" },
+                  { "title": "Paramedical", "href": "https://biu.edu.in/paramedical.php" }
+                ]
+              },
+              { "title": "Ph.D. Programmes", "href": "http://phd.biuerp.com/", "desc": "Doctoral research across medical, dental, pharmacy & sciences" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Academic Resources",
+        "icon": "BookOpen",
+        "href": "https://biu.edu.in/academic-calendar.php",
+        "columns": [
+          {
+            "title": "Schedules & Faculty",
+            "icon": "BookOpen",
+            "items": [
+              { "title": "Academic Calendar", "href": "https://biu.edu.in/academic-calendar.php", "desc": "Annual session dates, term milestones & exam schedules" },
+              { "title": "Faculty Directory", "href": "https://biu.edu.in/iqac/faculty-list.pdf", "desc": "Distinguished professors, clinicians & mentors" }
+            ]
+          },
+          {
+            "title": "Curriculum & Syllabi",
+            "icon": "FileText",
+            "items": [
+              { "title": "Curriculum Aspects", "href": "https://biu.edu.in/naac-curriculum-aspect.php", "desc": "Outcome-based education & CBCS curriculum guidelines" },
+              { "title": "Syllabi & Course Work", "href": "https://biu.edu.in/syllabusofcoursework.php", "desc": "Detailed coursework curriculum for undergraduate & doctoral studies" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Learning & Development",
+        "icon": "Sparkle",
+        "href": "https://biu.edu.in/econtents-developed.php",
+        "columns": [
+          {
+            "title": "Digital Learning & Skills",
+            "icon": "Sparkle",
+            "items": [
+              { "title": "E-Content & Video Lectures", "href": "https://biu.edu.in/econtents-developed.php", "desc": "Digital lecture repositories & e-learning modules" },
+              { "title": "Value Added Courses", "href": "https://biu.edu.in/value-added-courses.php", "desc": "Specialized certification courses for career enhancement" },
+              { "title": "Skill Development Schemes", "href": "https://biu.edu.in/capability-enhancement-schemes.php", "desc": "Capability building, soft skills & clinical workshops" }
+            ]
+          },
+          {
+            "title": "Outreach & Exam Prep",
+            "icon": "Compass",
+            "items": [
+              { "title": "Outreach Activities", "href": "https://biu.edu.in/extension-outreach-activities.php", "desc": "Community healthcare camps & social development" },
+              { "title": "Competitive Exam Guidance", "href": "https://biu.edu.in/competitive-exam-activities.php", "desc": "Coaching & mentorship for NEET PG, USMLE, GPAT, UGC-NET" }
+            ]
+          }
+        ]
+      }
+    ],
+    "featured": {
+      "tag": "Academic Excellence",
+      "title": "World-Class Healthcare & Sciences",
+      "desc": "Comprehensive clinical training at our multi-specialty 750+ bed teaching hospital and labs.",
+      "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+      "linkText": "Explore All Programmes",
+      "linkHref": "https://biu.edu.in/programmes-offered.php"
+    },
+    "bottomLink": {
+      "text": "Register for 2026–27 session admissions & counseling",
+      "href": "https://enquiry.biuerp.com/"
+    }
+  },
+  {
+    "id": "admissions",
+    "label": "Admissions",
+    "href": "https://enquiry.biuerp.com/",
+    "sidebar": [
+      {
+        "title": "Explore Programmes",
+        "icon": "Buildings",
+        "href": "https://enquiry.biuerp.com/",
+        "columns": [
+          {
+            "title": "Clinical & Allied Disciplines",
+            "icon": "Buildings",
+            "items": [
+              { "title": "Medical", "href": "https://biu.edu.in/medical.php", "desc": "MBBS, MD, MS & clinical residency" },
+              { "title": "Dental", "href": "https://biu.edu.in/dental.php", "desc": "BDS & MDS clinical dental surgery" },
+              { "title": "Ayurveda", "href": "https://ramch.in/", "desc": "BAMS & holistic clinical AYUSH healthcare" },
+              { "title": "Allied Health", "href": "https://biu.edu.in/paramedical.php", "desc": "BMLT, BRIT, Optometry & Physiotherapy" },
+              { "title": "Forensic", "href": "https://biu.edu.in/forensic.php", "desc": "Criminology, forensic toxicology & cyber forensics" }
+            ]
+          },
+          {
+            "title": "Nursing, Pharmacy & Humanities",
+            "icon": "Flask",
+            "items": [
+              { "title": "Nursing", "href": "https://biu.edu.in/nursing.php", "desc": "B.Sc, Post Basic, M.Sc Nursing & GNM" },
+              { "title": "Pharmacy", "href": "https://biu.edu.in/pharmacy.php", "desc": "B.Pharm, D.Pharm & Pharmaceutics" },
+              { "title": "Management", "href": "https://biu.edu.in/management.php", "desc": "BBA, MBA & corporate leadership" },
+              { "title": "Humanities", "href": "https://biu.edu.in/humanitiesandjournalism.php", "desc": "BJMC, mass communication & visual media" },
+              { "title": "Fine Arts", "href": "https://biu.edu.in/finearts.php", "desc": "BFA & applied arts degree courses" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Admission Process",
+        "icon": "FileText",
+        "href": "https://admissions.biuerp.com/",
+        "columns": [
+          {
+            "title": "Application & Eligibility",
+            "icon": "FileText",
+            "items": [
+              { "title": "How to Apply", "href": "https://enquiry.biuerp.com/", "desc": "Step-by-step guidance & online admission portal" },
+              { "title": "Eligibility Criteria", "href": "https://biu.edu.in/studentservices/SOP%20-%20Admission%20(2026-27).pdf", "desc": "Stream-wise cutoffs, qualification requirements & SOPs" }
+            ]
+          },
+          {
+            "title": "Notices & International",
+            "icon": "Compass",
+            "items": [
+              { "title": "Admission Notices", "href": "https://biu.edu.in/admissionnotification.php", "desc": "Latest session notifications, entrance dates & cutoffs" },
+              { "title": "International Admissions", "href": "https://biu.edu.in/notice/INC-Notification-for-international-Admission.pdf", "desc": "NRI & foreign candidates application procedure" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Fees & Policies",
+        "icon": "Scales",
+        "href": "https://biu.edu.in/studentservices/Fees%20Refund%20Policy%202026-27.pdf",
+        "columns": [
+          {
+            "title": "Fee Guidelines",
+            "icon": "Scales",
+            "items": [
+              { "title": "Fee Structure", "href": "https://biu.edu.in/studentservices/SOP%20-%20Admission%20(2026-27).pdf", "desc": "Official fee schedules & merit-based scholarships" },
+              { "title": "Refund Policy", "href": "https://biu.edu.in/studentservices/Fees%20Refund%20Policy%202026-27.pdf", "desc": "Statutory tuition fee refund & cancellation terms" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Ph.D. Admissions",
+        "icon": "GraduationCap",
+        "href": "http://phd.biuerp.com/",
+        "columns": [
+          {
+            "title": "Doctoral Admissions Portal",
+            "icon": "GraduationCap",
+            "items": [
+              { "title": "Admission Notice (Ph.D.)", "href": "https://biu.edu.in/admissionnotification.php", "desc": "Eligibility, entrance schedules & vacancy notices" },
+              { "title": "Online Application", "href": "http://phd.biuerp.com/", "desc": "Direct online registration portal for doctoral aspirants" },
+              { "title": "Offline Form (PDF)", "href": "https://biu.edu.in/applicationform.php", "desc": "Printable Ph.D. entrance examination form" },
+              { "title": "NRI Ph.D. Admission SOP", "href": "https://biu.edu.in/SOP-for-admission.php", "desc": "International scholars admission guidelines" }
+            ]
+          }
+        ]
+      }
+    ],
+    "featured": {
+      "tag": "Admissions 2026-27",
+      "title": "Direct Counsel Helpline",
+      "desc": "Connect directly with university admission officers for eligibility, cutoffs, and counseling support.",
+      "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+      "linkText": "Apply Online",
+      "linkHref": "https://admissions.biuerp.com/"
+    },
+    "bottomLink": {
+      "text": "Register for 2026–27 session admissions & counseling",
+      "href": "https://enquiry.biuerp.com/"
+    }
+  },
+  {
+    "id": "students",
+    "label": "Students & Campus",
+    "href": "https://student.biuerp.com/studentpanel/student/stulogin",
+    "sidebar": [
+      {
+        "title": "Student Portal",
+        "icon": "User",
+        "href": "https://student.biuerp.com/studentpanel/student/stulogin",
+        "columns": [
+          {
+            "title": "ERP Portals",
+            "icon": "User",
+            "items": [
+              { "title": "University ERP Access", "href": "https://biuerp.com/", "desc": "Role-based official university login dashboard" },
+              { "title": "Student Login", "href": "https://student.biuerp.com/studentpanel/student/stulogin", "desc": "Personalized student panel for attendance & dues" },
+              { "title": "New ERP Enrollment", "href": "https://admission.biu.edu.in/", "desc": "Enrollment portal for newly admitted candidates" },
+              { "title": "Examination Form", "href": "http://student.biuerp.com/", "desc": "Semester examination fee & subject submission" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Examinations",
+        "icon": "FileText",
+        "href": "https://biuerp.com/Report/ExaminationSchedule",
+        "columns": [
+          {
+            "title": "Examination Cell",
+            "icon": "FileText",
+            "items": [
+              { "title": "Admit Card", "href": "https://student.biuerp.com/studentpanel/student/stulogin", "desc": "Download semester examination hall tickets" },
+              { "title": "Results", "href": "https://student.biuerp.com/studentpanel/student/stulogin", "desc": "View published university exam results & grades" },
+              { "title": "Schedule", "href": "https://biuerp.com/Report/ExaminationSchedule", "desc": "Latest datesheets & examination timetable" },
+              { "title": "Notices", "href": "https://student.biuerp.com/studentpanel/student/stulogin", "desc": "Official circulars from Controller of Examinations" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Certificates & Documents",
+        "icon": "ShieldCheck",
+        "href": "https://biu.edu.in/studentservices/verification.pdf",
+        "columns": [
+          {
+            "title": "Official Credentials SOP",
+            "icon": "ShieldCheck",
+            "items": [
+              { "title": "Degree Certificate", "href": "https://biu.edu.in/studentservices/SOP%20for%20Issueing%20Degree.pdf", "desc": "SOP and application for degree issuance" },
+              { "title": "Official Transcript", "href": "https://biu.edu.in/studentservices/Official-Transcript.pdf", "desc": "Standard procedure for sealed grade transcripts" },
+              { "title": "Migration Certificate", "href": "https://biu.edu.in/studentservices/SOP-Migration-Certificate.pdf", "desc": "Guidelines for obtaining migration credentials" },
+              { "title": "Provisional Certificate", "href": "https://biu.edu.in/studentservices/SOP-Provisional-Certificate.pdf", "desc": "Provisional degree certificate issuance SOP" },
+              { "title": "Document Verification", "href": "https://biu.edu.in/studentservices/verification.pdf", "desc": "Employer & institution document verification SOP" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Campus Life",
+        "icon": "Compass",
+        "href": "https://page.biu.edu.in/campus-facilities/",
+        "columns": [
+          {
+            "title": "Campus Living",
+            "icon": "Compass",
+            "items": [
+              { "title": "Facilities", "href": "https://page.biu.edu.in/campus-facilities/", "desc": "Campus amenities, transport & 24/7 security" },
+              { "title": "Library", "href": "https://page.biu.edu.in/central-library/", "desc": "Central digital repository & study spaces" },
+              { "title": "Hostel", "href": "https://biu.edu.in/campus.php", "desc": "Comfortable residential hostel blocks with Wi-Fi" },
+              { "title": "Sports", "href": "https://biu.edu.in/infrastructure.php", "desc": "Outdoor arenas, gymnasium & athletics ground" },
+              { "title": "NCC / NSS & Activities", "href": "https://biu.edu.in/extension-outreach-activities.php", "desc": "Youth corps, social camps & community engagement" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Career & Community",
+        "icon": "Briefcase",
+        "href": "https://biu.edu.in/placements.php",
+        "columns": [
+          {
+            "title": "Placement & Network",
+            "icon": "Briefcase",
+            "items": [
+              { "title": "Placements", "href": "https://biu.edu.in/placements.php", "desc": "Corporate placement drives & hospital residencies" },
+              { "title": "Careers", "href": "/career", "desc": "Faculty, medical & administrative openings" },
+              { "title": "Alumni", "href": "https://biu.edu.in/alumni.php", "desc": "Global alumni association & networking" },
+              { "title": "Grievance & RTI", "href": "https://biu.edu.in/notice/RTI.pdf", "desc": "Student grievance redressal & RTI circulars" }
+            ]
+          }
+        ]
+      }
+    ],
+    "featured": {
+      "tag": "Digital Student Desk",
+      "title": "Student ERP & Exam Portal",
+      "desc": "One-stop online portal for admit cards, fee receipts, results, and digital certificate applications.",
+      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+      "linkText": "Launch Student Portal",
+      "linkHref": "https://student.biuerp.com/studentpanel/student/stulogin"
+    },
+    "bottomLink": {
+      "text": "Register for 2026–27 session admissions & counseling",
+      "href": "https://enquiry.biuerp.com/"
+    }
+  },
+  {
+    "id": "research",
+    "label": "Research & Innovation",
+    "href": "/research",
+    "sidebar": [
+      {
+        "title": "Research",
+        "icon": "Buildings",
+        "href": "/research",
+        "columns": [
+          {
+            "title": "Research Framework",
+            "icon": "Buildings",
+            "items": [
+              { "title": "Research Development Centre", "href": "/research?tab=about-rdc", "desc": "RDC hub promoting multi-disciplinary innovations" },
+              { "title": "Research Policy", "href": "/research?tab=research-promotion-policy", "desc": "Seed grants, institutional promotion & awards" },
+              { "title": "Code of Ethics", "href": "/research?tab=code-of-ethics", "desc": "Research integrity & bio-ethical standards" },
+              { "title": "DSIR / SIRO Recognition", "href": "/research?tab=dsir-siro", "desc": "Scientific & Industrial Research Organization certificate" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Funding & Innovation",
+        "icon": "Sparkle",
+        "href": "/funding-and-innovations",
+        "columns": [
+          {
+            "title": "Grants & Patents",
+            "icon": "Sparkle",
+            "items": [
+              { "title": "Research Grants", "href": "/funding-and-innovations?tab=research-grants", "desc": "National & international research funding proposals" },
+              { "title": "ICMR Funded Projects", "href": "/funding-and-innovations?tab=icmr-funded-projects", "desc": "National medical research projects & clinical trials" },
+              { "title": "Patents", "href": "/funding-and-innovations?tab=patents", "desc": "Intellectual property & published patent filings" },
+              { "title": "Incubation Centre (BMIIL)", "href": "/funding-and-innovations?tab=incubation-centre", "desc": "Startup incubation & healthcare innovation hub" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Doctoral Research",
+        "icon": "GraduationCap",
+        "href": "http://phd.biuerp.com/",
+        "columns": [
+          {
+            "title": "Ph.D. Administration",
+            "icon": "GraduationCap",
+            "items": [
+              { "title": "Ph.D. Admissions", "href": "https://biu.edu.in/admissionnotification.php", "desc": "Doctoral notifications & vacancy notices" },
+              { "title": "Ordinances", "href": "https://biu.edu.in/biuphdordinance.php", "desc": "Statutory rules for doctoral candidates" },
+              { "title": "Course Work Syllabus", "href": "https://biu.edu.in/syllabusofcoursework.php", "desc": "Pre-Ph.D. methodology & coursework outline" },
+              { "title": "Entrance Portal", "href": "http://phd.biuerp.com/", "desc": "Online application & admit card generation" },
+              { "title": "Fellowship Admission", "href": "https://biu.edu.in/fellowship.php", "desc": "Post-doctoral & clinical fellowship seats" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Publications",
+        "icon": "BookOpen",
+        "href": "http://ijaims.in/",
+        "columns": [
+          {
+            "title": "Indexed Journals & News",
+            "icon": "BookOpen",
+            "items": [
+              {
+                "title": "Peer-Reviewed Journals",
+                "desc": "Indexed national & international journals",
+                "sublinks": [
+                  { "title": "IJAIMS (Medical)", "href": "http://ijaims.in/" },
+                  { "title": "JDSOR (Dental)", "href": "http://jdsor.com/" },
+                  { "title": "RJAR (AYUSH)", "href": "https://www.jrohilayush.com/" }
+                ]
+              },
+              { "title": "University Newsletter", "href": "https://biu.edu.in/research/BIU-News-Letter-Jan-2026.pdf", "desc": "Quarterly scientific & university news bulletin" },
+              { "title": "Research Recognitions", "href": "https://biu.edu.in/recognition-university-faculty-members.php", "desc": "Faculty citations, awards & research honors" }
+            ]
+          }
+        ]
+      }
+    ],
+    "featured": {
+      "tag": "Doctoral Studies",
+      "title": "Ph.D. Admissions 2026",
+      "desc": "Applications invited for Ph.D. programmes across medical, dental, pharmacy, and allied disciplines.",
+      "image": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80",
+      "linkText": "Ph.D. Application Portal",
+      "linkHref": "http://phd.biuerp.com/"
+    },
+    "bottomLink": {
+      "text": "Register for 2026–27 session admissions & counseling",
+      "href": "https://enquiry.biuerp.com/"
+    }
+  }
+]

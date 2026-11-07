@@ -1,0 +1,547 @@
+import { useState } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { CheckCircle, PaperPlaneTilt, GraduationCap, Plus, Minus, ArrowRight, Stethoscope, Tooth, Heart, Pill, ChartBar, Newspaper, FirstAid, Fingerprint, Plant, Palette, SquaresFour, Question, CaretRight } from './icons';
+import contactData from '../data/contact.json';
+import faqData from '../data/faq.json';
+import siteData from '../data/site.json';
+
+const EASE = [0.16, 1, 0.3, 1];
+
+const INTEREST_OPTIONS = [
+  { id: 'medical', label: 'Medical Sciences', icon: Stethoscope },
+  { id: 'dental', label: 'Dental Sciences', icon: Tooth },
+  { id: 'nursing', label: 'Nursing', icon: Heart },
+  { id: 'pharmacy', label: 'Pharmacy', icon: Pill },
+  { id: 'management', label: 'Management', icon: ChartBar },
+  { id: 'humanities', label: 'Humanities & Journalism', icon: Newspaper },
+  { id: 'allied', label: 'Allied & Health Care Sciences', icon: FirstAid },
+  { id: 'forensic', label: 'Forensic Sciences', icon: Fingerprint },
+  { id: 'ayurveda', label: 'Ayurvedic Sciences', icon: Plant },
+  { id: 'finearts', label: 'Faculty of Fine Arts', icon: Palette },
+  { id: 'other', label: 'Other', icon: SquaresFour },
+];
+
+function FaqItem({ item, isOpen, onToggle, index }) {
+  const reduceMotion = useReducedMotion();
+  const panelId = `faq-panel-${index}`;
+  const btnId = `faq-btn-${index}`;
+
+  return (
+    <div
+      className={`overflow-hidden rounded-xl border transition-colors duration-200 bg-white ${isOpen
+          ? 'border-gold/50 shadow-xs'
+          : 'border-slate-200/80 hover:border-gold/40 shadow-xs'
+        }`}
+    >
+      <h3>
+        <button
+          id={btnId}
+          type="button"
+          aria-expanded={isOpen}
+          aria-controls={panelId}
+          onClick={onToggle}
+          className="flex w-full items-center justify-between gap-4 px-5 py-4 sm:px-6 sm:py-4.5 text-left cursor-pointer"
+        >
+          <span className="font-sans text-[15px] font-medium text-forest-dark sm:text-base">
+            {item.q}
+          </span>
+          <motion.span
+            animate={{ rotate: isOpen ? 45 : 0 }}
+            transition={{ duration: 0.35, ease: EASE }}
+            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-gold-dark"
+          >
+            <Plus size={18} weight="bold" />
+          </motion.span>
+        </button>
+      </h3>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            id={panelId}
+            role="region"
+            aria-labelledby={btnId}
+            initial={reduceMotion ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={reduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: EASE }}
+            className="overflow-hidden"
+          >
+            <p className="px-5 pb-5 font-newsreader text-[14px] font-light leading-relaxed text-forest/65 sm:px-6">
+              {item.a}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+export default function Contact() {
+  const reduceMotion = useReducedMotion();
+  const [openIndex, setOpenIndex] = useState(0);
+  const [sent, setSent] = useState(false);
+  const [selectedField, setSelectedField] = useState('');
+  const [form, setForm] = useState({ name: '', email: '', phone: '', course: '', message: '' });
+  const [errors, setErrors] = useState({});
+
+  const questions = faqData.questions || [];
+
+  const handleFieldSelect = (optId) => {
+    const isDeselect = selectedField === optId;
+    const nextField = isDeselect ? '' : optId;
+    setSelectedField(nextField);
+
+    if (!isDeselect && nextField) {
+      const matchedTemplate = contactData.templates?.find(
+        (t) => t.id === nextField || t.label?.toLowerCase() === nextField.toLowerCase()
+      );
+      if (matchedTemplate?.text) {
+        setForm((f) => ({ ...f, message: matchedTemplate.text }));
+        if (errors.message) setErrors((prev) => ({ ...prev, message: '' }));
+      } else {
+        const activeOpt = INTEREST_OPTIONS.find((o) => o.id === nextField);
+        setForm((f) => ({
+          ...f,
+          message: activeOpt
+            ? `Hello BIU Admissions Team, I would like to inquire about admission eligibility, syllabus, and fee structure for ${activeOpt.label} programs.`
+            : contactData.defaultTemplate || '',
+        }));
+      }
+    } else {
+      setForm((f) => ({ ...f, message: '' }));
+    }
+  };
+
+  const handleNameChange = (e) => {
+    const val = e.target.value.replace(/[^a-zA-Z\s]/g, '').replace(/\s+/g, ' ');
+    if (val.length <= 50) {
+      setForm((f) => ({ ...f, name: val }));
+      if (errors.name) setErrors((prev) => ({ ...prev, name: '' }));
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    const val = e.target.value.trim();
+    if (val.length <= 80) {
+      setForm((f) => ({ ...f, email: val }));
+      if (errors.email) setErrors((prev) => ({ ...prev, email: '' }));
+    }
+  };
+
+  const handlePhoneChange = (e) => {
+    const digitsOnly = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setForm((f) => ({ ...f, phone: digitsOnly }));
+    if (errors.phone) setErrors((prev) => ({ ...prev, phone: '' }));
+  };
+
+  const handleCourseChange = (e) => {
+    // Only allow alphabets, spaces, and standard academic punctuation (. , / & - ( ))
+    const val = e.target.value.replace(/[^a-zA-Z\s.,/&()-]/g, '');
+    if (val.length <= 60) {
+      setForm((f) => ({ ...f, course: val }));
+      if (errors.course) setErrors((prev) => ({ ...prev, course: '' }));
+    }
+  };
+
+  const handleMessageChange = (e) => {
+    const val = e.target.value;
+    if (val.length <= 1000) {
+      setForm((f) => ({ ...f, message: val }));
+      if (errors.message) setErrors((prev) => ({ ...prev, message: '' }));
+    }
+  };
+
+  const validate = () => {
+    const newErrors = {};
+    const trimmedName = form.name.trim();
+    if (!trimmedName) {
+      newErrors.name = 'Full Name is required.';
+    } else if (trimmedName.length < 2) {
+      newErrors.name = 'Please enter a valid name.';
+    }
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!form.email) {
+      newErrors.email = 'Email address is required.';
+    } else if (!emailRegex.test(form.email)) {
+      newErrors.email = 'Please enter a valid email address.';
+    }
+
+    const digitsOnly = form.phone.replace(/\D/g, '');
+    if (!form.phone.trim()) {
+      newErrors.phone = 'Phone number is required.';
+    } else if (digitsOnly.length !== 10) {
+      newErrors.phone = 'Please enter a valid 10-digit number.';
+    }
+
+    const trimmedCourse = form.course.trim();
+    if (!trimmedCourse) {
+      newErrors.course = 'Course name is required.';
+    } else if (trimmedCourse.length < 2 || !/^[a-zA-Z\s.,/&()-]+$/.test(trimmedCourse)) {
+      newErrors.course = 'Please enter a valid course name (e.g. MBBS, BDS, B.Pharm, MBA).';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validate()) {
+      const activeOption = INTEREST_OPTIONS.find((opt) => opt.id === selectedField);
+      const fieldLabel = activeOption ? activeOption.label : selectedField;
+
+      const payload = {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim(),
+        course: form.course.trim(),
+        field: fieldLabel,
+        message: form.message.trim(),
+      };
+
+      setSent(true);
+
+      const targetPhone = (siteData.whatsappPhone || '917455002900').replace(/\D/g, '');
+      const userMessage = payload.message ? payload.message : 'I would like to inquire about admissions and counseling.';
+      const coursePart = payload.course ? `\n*Course:* ${payload.course}` : '';
+      const fieldPart = payload.field ? `\n*Interested Field:* ${payload.field}` : '';
+      const formattedMessage = `Hello BIU Admissions Team,\n\n${userMessage}\n\n*Name:* ${payload.name}\n*Email:* ${payload.email}\n*Phone:* ${payload.phone}${coursePart}${fieldPart}`;
+
+      const waUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(formattedMessage)}`;
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      }).catch(() => { });
+    }
+  };
+
+  return (
+    <section id="contact" className="relative z-[2] w-full bg-[#fbfbfd] py-18 sm:py-24 lg:py-44 font-sans">
+      {/* Target anchor for FAQ direct links */}
+      <div id="faq" className="absolute -top-20 left-0" />
+      <div id="book" className="absolute -top-20 left-0" />
+
+      {/* Atmospheric Background Wave Blob */}
+      <div className="pointer-events-none absolute -right-28 sm:-right-10 top-20 w-[650px] lg:w-[850px] h-[650px] lg:h-[850px] bg-gradient-to-bl from-[#d9ebfb]/55 via-[#eaf4fd]/40 to-transparent rounded-full filter blur-3xl z-0 opacity-60" />
+
+      {/* Center Background Banyan Tree Watermark */}
+      <div className="pointer-events-none absolute inset-0 z-0 select-none">
+        <img
+          src="/tree.png"
+          alt=""
+          className="absolute top-12 left-[50%] -translate-x-1/2 lg:-translate-x-0 lg:left-[12%] w-[850px] lg:w-[1100px] h-auto max-w-none opacity-[0.14] filter brightness-0"
+        />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-[1520px] px-5 sm:px-8 lg:px-12 xl:px-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-16 items-start">
+
+          {/* =========================================================
+              LEFT COLUMN: FREQUENTLY ASKED QUESTIONS
+          ========================================================= */}
+          <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-start text-left">
+            {/* Eyebrow Tag */}
+            <div className="flex items-center gap-2.5 mb-3.5">
+              <span className="w-8 h-[3.5px] bg-gold rounded-full" />
+              <span className="font-sans text-[12px] sm:text-xs font-black uppercase tracking-[0.22em] text-[#0c2340]">
+                {faqData.badge || 'ADMISSIONS FAQ'}
+              </span>
+            </div>
+
+            {/* Heading */}
+            <motion.h2
+              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, ease: EASE }}
+              className="font-times text-3xl sm:text-4xl lg:text-[2.65rem] font-medium text-[#0c2340] leading-[1.12] mt-2 mb-4"
+            >
+              Frequently Asked Questions
+            </motion.h2>
+
+            {/* Description */}
+            <motion.p
+              initial={reduceMotion ? false : { opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
+              className="font-sans text-xs sm:text-sm md:text-[14.5px] text-slate-600 font-normal leading-relaxed mb-8 max-w-xl"
+            >
+              Get quick answers to common questions about admissions, programs, eligibility, campus facilities and more.
+            </motion.p>
+
+            {/* Accordion List */}
+            <motion.div
+              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.8, ease: EASE, delay: 0.2 }}
+              className="flex flex-col gap-3.5 mb-9 w-full max-w-[620px]"
+            >
+              {questions.map((item, i) => (
+                <FaqItem
+                  key={item.q || i}
+                  item={item}
+                  index={i}
+                  isOpen={openIndex === i}
+                  onToggle={() => setOpenIndex((cur) => (cur === i ? -1 : i))}
+                />
+              ))}
+            </motion.div>
+
+            {/* View All FAQs Pill Button */}
+            <motion.div
+              initial={reduceMotion ? false : { opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, ease: EASE, delay: 0.3 }}
+            >
+              <a
+                href="#faq"
+                className="group inline-flex items-center gap-2.5 mt-0.5 ml-1.5 rounded-lg bg-gradient-to-r from-[#0c2340]/90 via-[#102d52]/90 to-[#163860]/70 px-5.5 py-3 sm:px-6 sm:py-3.5 font-sans text-xs sm:text-[13.5px] font-semibold text-white shadow-sm brightness-125 transition-all duration-200 hover:shadow-lg hover:brightness-125 active:scale-[0.98] w-fit"
+              >
+                <Question size={20} weight="fill" className="text-blue-100 transition-transform duration-200 group-hover:scale-110" />
+                <span>View All FAQs</span>
+                <CaretRight size={14} weight="bold" className="text-white/90 transition-transform duration-200 group-hover:translate-x-0.5" />
+              </a>
+            </motion.div>
+          </div>
+
+
+          {/* =========================================================
+              RIGHT COLUMN: ADMISSIONS 2026-27 / CONTACT INQUIRY CARD
+          ========================================================= */}
+          <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-start text-left relative w-full">
+            {/* Eyebrow Tag */}
+            <div className="flex items-center gap-2.5 mb-3.5">
+              <span className="w-8 h-[3.5px] bg-gold rounded-full" />
+              <span className="font-sans text-[12px] sm:text-xs font-black uppercase tracking-[0.22em] text-[#0c2340]">
+                {contactData.badge || 'ADMISSIONS 2026–27'}
+              </span>
+            </div>
+
+            {/* Heading */}
+            <motion.h2
+              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, ease: EASE }}
+              className="font-times text-3xl sm:text-4xl lg:text-[2.65rem] font-medium text-[#0c2340] leading-[1.12] mt-2 mb-4"
+            >
+              Begin Your <span className="font-bold">BIU Journey</span>
+            </motion.h2>
+
+            {/* Description */}
+            <motion.p
+              initial={reduceMotion ? false : { opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
+              className="font-sans text-xs sm:text-sm md:text-[14.5px] text-slate-600 font-normal leading-relaxed mb-8 max-w-xl"
+            >
+              {contactData.subtitle || 'Share your details below and our Admissions Cell will contact you with course brochures, fee structures, and campus visit counseling.'}
+            </motion.p>
+
+            {/* Form Card Container */}
+            <motion.div
+              initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.9, ease: EASE, delay: 0.15 }}
+              className="relative w-full rounded-xl bg-white border border-slate-200/80 shadow-[0_22px_65px_-15px_rgba(12,35,64,0.13)] p-6 sm:p-8 lg:p-9 xl:p-10"
+            >
+              {sent ? (
+                <motion.div
+                  initial={reduceMotion ? false : { opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, ease: EASE }}
+                  className="my-6 flex flex-col items-center rounded-2xl bg-slate-50 border border-slate-200/80 p-8 text-center"
+                >
+                  <CheckCircle size={46} weight="fill" className="text-[#0c2340]/90" />
+                  <h4 className="mt-3.5 font-times text-2xl text-[#0c2340] font-bold">
+                    {contactData.thankYouTitle || 'Inquiry Received!'}
+                  </h4>
+                  <p className="mt-2 max-w-sm font-sans text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {contactData.thankYouMessage || 'Thank you for reaching out to Bareilly International University. Our counselors will contact you shortly.'}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSent(false);
+                      setForm({ name: '', email: '', phone: '', course: '', message: '' });
+                      setErrors({});
+                    }}
+                    className="group mt-6 inline-flex items-center gap-2.5 rounded-lg bg-gradient-to-r from-[#0c2340]/90 via-[#102d52]/90 to-[#163860]/70 px-6 py-3 font-sans text-xs sm:text-[13.5px] font-semibold text-white shadow-sm brightness-125 transition-all duration-200 hover:shadow-lg hover:brightness-125 active:scale-[0.98] cursor-pointer"
+                  >
+                    <PaperPlaneTilt size={18} weight="fill" className="text-blue-100 transition-transform duration-200 group-hover:scale-110 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    <span>Send Another Inquiry</span>
+                    <CaretRight size={13} weight="bold" className="text-white/90 transition-transform duration-200 group-hover:translate-x-0.5" />
+                  </button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6 sm:gap-6.5">
+                  {/* Row 1: Full Name & Email */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+                    <div className="flex flex-col gap-2">
+                      <label htmlFor="c-name" className="font-sans text-[10.5px] font-bold uppercase tracking-wider text-slate-700">
+                        FULL NAME
+                      </label>
+                      <input
+                        id="c-name"
+                        type="text"
+                        required
+                        autoComplete="name"
+                        placeholder="e.g. Rahul Sharma"
+                        value={form.name}
+                        onChange={handleNameChange}
+                        className={`w-full rounded-lg border bg-white px-4 py-3 sm:px-5 sm:py-3.5 font-sans text-[14px] text-slate-800 placeholder:text-slate-400 outline-none transition-all duration-200 focus:border-gold focus:ring-2 focus:ring-gold/20 ${
+                          errors.name ? 'border-red-500/70 ring-1 ring-red-500/20' : 'border-slate-200/90'
+                        }`}
+                      />
+                      {errors.name && (
+                        <span className="font-sans text-[11px] text-red-600 font-medium">{errors.name}</span>
+                      )}
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <label htmlFor="c-email" className="font-sans text-[10.5px] font-bold uppercase tracking-wider text-slate-700">
+                        EMAIL
+                      </label>
+                      <input
+                        id="c-email"
+                        type="email"
+                        required
+                        maxLength={80}
+                        autoComplete="email"
+                        placeholder="e.g. rahul@example.com"
+                        value={form.email}
+                        onChange={handleEmailChange}
+                        className={`w-full rounded-lg border bg-white px-4 py-3 sm:px-5 sm:py-3.5 font-sans text-[14px] text-slate-800 placeholder:text-slate-400 outline-none transition-all duration-200 focus:border-gold focus:ring-2 focus:ring-gold/20 ${
+                          errors.email ? 'border-red-500/70 ring-1 ring-red-500/20' : 'border-slate-200/90'
+                        }`}
+                      />
+                      {errors.email && (
+                        <span className="font-sans text-[11px] text-red-600 font-medium">{errors.email}</span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Row 2: Phone Number & Course Name */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+                    <div className="flex flex-col gap-2">
+                      <label htmlFor="c-phone" className="font-sans text-[10.5px] font-bold uppercase tracking-wider text-slate-700">
+                        PHONE NUMBER
+                      </label>
+                      <input
+                        id="c-phone"
+                        type="tel"
+                        required
+                        maxLength={10}
+                        autoComplete="tel"
+                        placeholder="e.g. 9876543210"
+                        value={form.phone}
+                        onChange={handlePhoneChange}
+                        className={`w-full rounded-lg border bg-white px-4 py-3 sm:px-5 sm:py-3.5 font-sans text-[14px] text-slate-800 placeholder:text-slate-400 outline-none transition-all duration-200 focus:border-gold focus:ring-2 focus:ring-gold/20 ${
+                          errors.phone ? 'border-red-500/70 ring-1 ring-red-500/20' : 'border-slate-200/90'
+                        }`}
+                      />
+                      {errors.phone && (
+                        <span className="font-sans text-[11px] text-red-600 font-medium">{errors.phone}</span>
+                      )}
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <label htmlFor="c-course" className="font-sans text-[10.5px] font-bold uppercase tracking-wider text-slate-700">
+                        COURSE NAME
+                      </label>
+                      <input
+                        id="c-course"
+                        type="text"
+                        required
+                        placeholder="e.g. MBBS, BDS, B.Sc Nursing, B.Pharm, MBA"
+                        value={form.course}
+                        onChange={handleCourseChange}
+                        className={`w-full rounded-lg border bg-white px-4 py-3 sm:px-5 sm:py-3.5 font-sans text-[14px] text-slate-800 placeholder:text-slate-400 outline-none transition-all duration-200 focus:border-gold focus:ring-2 focus:ring-gold/20 ${
+                          errors.course ? 'border-red-500/70 ring-1 ring-red-500/20' : 'border-slate-200/90'
+                        }`}
+                      />
+                      {errors.course && (
+                        <span className="font-sans text-[11px] text-red-600 font-medium">{errors.course}</span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Interested Field Chips (Optional) */}
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center justify-between">
+                      <label className="font-sans text-[10.5px] font-bold uppercase tracking-wider text-slate-700">
+                        INTERESTED FIELD <span className="ml-1 text-gold-dark">(OPTIONAL)</span>
+                      </label>
+                      <span className="font-sans text-[11px] text-slate-400 font-normal">
+                        Scroll to explore →
+                      </span>
+                    </div>
+                    <div
+                      className="flex items-center gap-2 overflow-x-auto pb-1.5 pt-1 scroll-smooth"
+                      style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    >
+                      {INTEREST_OPTIONS.map((opt) => {
+                        const Icon = opt.icon;
+                        const isSelected = selectedField === opt.id;
+                        return (
+                          <button
+                            key={opt.id}
+                            type="button"
+                            onClick={() => handleFieldSelect(opt.id)}
+                            className={`shrink-0 inline-flex items-center gap-2 rounded-xl border px-2.5 py-1.5 font-sans text-xs font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer ${
+                              isSelected
+                                ? 'border-[#0c2340]/40 bg-[#eef4fa] text-[#0c2340] shadow-xs ring-1 ring-[#0c2340]/5 scale-[1.02]'
+                                : 'border-slate-200 bg-white text-slate-600 hover:border-slate-400/60 hover:bg-slate-50'
+                            }`}
+                          >
+                            <Icon size={18} weight="bold" className={isSelected ? 'text-[#0c2340]' : 'text-slate-500'} />
+                            <span>{opt.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Message (Optional) */}
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="c-message" className="font-sans text-[10.5px] font-bold uppercase tracking-wider text-slate-700">
+                      MESSAGE <span className="ml-1 text-gold-dark">(OPTIONAL)</span>
+                    </label>
+                    <textarea
+                      id="c-message"
+                      rows={3}
+                      placeholder="Share details about your query, preferred date, or special requests..."
+                      value={form.message}
+                      onChange={handleMessageChange}
+                      className="w-full min-h-[125px] sm:min-h-[135px] rounded-lg border border-slate-200/90 bg-white px-4 py-3 sm:px-5 sm:py-3.5 font-sans text-[14px] text-slate-800 placeholder:text-slate-400 outline-none transition-all duration-200 focus:border-gold focus:ring-2 focus:ring-gold/20 resize-none"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    className="group mt-3 flex h-13 sm:h-14 w-full items-center justify-center gap-2.5 rounded-lg bg-gradient-to-r from-[#0c2340]/90 via-[#102d52]/90 to-[#163860]/70 px-8 font-sans text-xs sm:text-[15.5px] font-semibold text-white shadow-sm brightness-125 transition-all duration-200 hover:shadow-lg hover:brightness-125 active:scale-[0.98] cursor-pointer"
+                  >
+                    <PaperPlaneTilt size={18} weight="fill" className="text-blue-100 transition-transform duration-200 group-hover:scale-110 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    <span>Submit Admission Inquiry</span>
+                    <CaretRight size={16} weight="bold" className="text-white/90 transition-transform duration-200 group-hover:translate-x-0.5" />
+                  </button>
+                </form>
+              )}
+            </motion.div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
